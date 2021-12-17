@@ -9,6 +9,8 @@ const app = express();
 // create routes
 app.use("/", htmlRoutes);
 
+app.use(express.static("public"));
+
 
 // set up the port
 app.listen(3001, () => {
