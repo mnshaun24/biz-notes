@@ -1,6 +1,5 @@
 // require files for use
 const express = require("express");
-const htmlRoutes = require("./routes/htmlRoutes");
 
 // initiate server
 const PORT = process.env.PORT || 3001;
@@ -15,9 +14,14 @@ app.use(express.static("public"));
 
 
 // create routes
+const htmlRoutes = require("./routes/htmlRoutes");
+const apiRoutes = require("./routes/apiRoutes");
+
+app.use("/api", apiRoutes);
 app.use("/", htmlRoutes);
 
 
 // set up the port
-app.listen(3001, () => {
+app.listen(PORT, () => {
+    console.log("API is now set to your local port")
 });
